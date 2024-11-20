@@ -2,7 +2,7 @@ import React from 'react';
 import './header.css';
 import { useState, useEffect, useRef } from 'react';
 
-function Header() {
+function Header({toggleSidebar}) {
     const [isOpen, setOpen] = useState(false);
     const dropdownRef = useRef(null);
     const toggleRef = useRef(null);
@@ -29,10 +29,13 @@ function Header() {
 
     return (<><header>
         <div className='header-content'>
+        <button className="sidebar-toggle-button" onClick={toggleSidebar}>
+            <span>☰</span>
+        </button>
             <div className='header-logo'>
                 <img src="/ListMeLogo.png"></img>
             </div>
-            <div className="right-content" onClick={toggleProfileDropdwon} ref = {toggleRef}>
+            <div className="right-content" onClick={toggleProfileDropdwon} ref={toggleRef}>
                 <div className="user-profile">
                     <img src="/profile-placeholder.png"></img>
                 </div>

@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './sidebar.css';
 
-function Header() {
-
+function Sidebar({ isOpen }) {
     return (
-    <div className='sidebar'>
-        <p>Posts</p>
-        <p>Calender</p>
-        <p>Analytics</p>
-        <p>Linked Accounts</p>
-        <p>AI Tools</p>
-        <p>Settings</p>
-    </div>
+        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">Posts</span>
+            </div>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">Calendar</span>
+            </div>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">Analytics</span>
+            </div>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">Linked Accounts</span>
+            </div>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">AI Tools</span>
+            </div>
+            <div className="sidebar-item">
+                <img src="caret-down.svg"/>
+                <span className="text">Settings</span>
+            </div>
+        </div>
     );
 }
 
-export default Header;
+export default Sidebar;
