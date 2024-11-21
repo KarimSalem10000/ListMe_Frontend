@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './header.js';
 import Sidebar from './sidebar.js';
 import './App.css';
+import Posts from './posts.js';
 
 function App() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -14,6 +15,7 @@ function App() {
     <Header toggleSidebar={toggleSidebar}/>
       <div className="app">
         <Sidebar isOpen={isSidebarOpen} />
+        <Posts />
       </div>
       </>
   );
