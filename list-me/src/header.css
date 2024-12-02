@@ -1,0 +1,162 @@
+header{
+    background-color: white;
+    top: 0;
+    overflow: hidden;
+    padding: 5px 10px;
+    padding-bottom: 3px;
+    z-index: 50;
+    width: 100vw;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.header-content{
+    height: 100%;
+}
+
+.header-logo{
+    float: left;
+    cursor: pointer;
+}
+
+.header-logo img{
+    width: auto;
+    height: 45px;
+}
+
+.right-content{
+    float:right;
+    margin-right: 20px;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img{
+    height: 45px;   
+    width: auto;
+    border-radius: 50%;
+}
+
+.caret img{
+    height: 25px;
+    width: auto;
+}
+
+.caret{
+    margin-top: 5px;
+}
+
+.profile-dropwdown-menu{
+    position: absolute;
+    width: 250px;
+    z-index: 100;
+    top: 50px;
+    right: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.profile-dropdown-profile{
+    height: fit-content;
+    display: flex;
+    font-size: 12px;
+    border-bottom: 1px solid #dee2e6;
+    margin: 5px;
+    padding: 12px;
+    
+}
+
+.profile-dropdown-profile img{
+    height: 40px;   
+    width: auto;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-dropdown-info{
+    margin-left: 8px;
+}
+
+.username-font{
+    font-weight: 600;
+}
+
+.email-font{
+    color: grey;
+    font-weight: 600;
+}
+
+.edit-font{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.edit-font:hover{
+    text-decoration: underline;
+}
+
+.profile-dropdown-options{
+    margin: 5px;
+    padding: 12px;
+    padding-top: 0px;  
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.profile-options-item{
+    padding: 7px;
+    padding-left: 0px;
+    font-weight: 550;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 4px;
+}
+
+.profile-options-item:hover{
+    cursor: pointer;
+    background-color: #f1f3f5;
+}
+
+.profile-options-item img{
+    font-weight: 550;
+    font-size: 14px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.profile-signout-item{
+    padding: 7px;
+    padding-left: 0px;
+    font-weight: 550;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: #FA5252;
+    border-radius: 4px;
+}
+
+.profile-signout-item:hover{
+    cursor: pointer;
+    background-color: #ffaeaf;
+}
+
+.profile-signout-item img{
+    font-weight: 550;
+    font-size: 14px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.profile-dropdown-signout{
+    margin: 5px;
+    padding: 12px;
+    padding-top: 0px;  
+    padding-bottom: 0px;
+}
