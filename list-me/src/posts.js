@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PostCard from './PostCard';
 import './posts.css';
+import CreateModal from './CreateModal';
 
 function Posts() {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -14,14 +15,14 @@ function Posts() {
             id: 1,
             title: "Post 1",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e",
-            image: "https://via.placeholder.com/300x150",
+            image: "example.png",
             hashtags: "#ListMe #SocialMedia",
         },
         {
             id: 2,
             title: "Post 2",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e",
-            image: "https://via.placeholder.com/300x150",
+            image: "example.png",
             hashtags: "#ListMe #SocialMedia",
         },
 
@@ -29,7 +30,7 @@ function Posts() {
             id: 3,
             title: "Post 2",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e",
-            image: "https://via.placeholder.com/300x150",
+            image: "example.png",
             hashtags: "#ListMe #SocialMedia",
         },
 
@@ -37,7 +38,14 @@ function Posts() {
             id: 4,
             title: "Post 2",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e",
-            image: "https://via.placeholder.com/300x150",
+            image: "example.png",
+            hashtags: "#ListMe #SocialMedia",
+        },
+        {
+            id: 4,
+            title: "Post 2",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e",
+            image: "example.png",
             hashtags: "#ListMe #SocialMedia",
         },
         
@@ -46,13 +54,13 @@ function Posts() {
     return (
         <div className="posts-container">
             <div className="posts-header">
-                <h1>Posts</h1>
+            <div className='posts-title'>Posts</div>
                 <input
                     type="text"
                     className="search-bar"
                     placeholder="Search posts (2)"
                 />
-                <button className="create-button" onClick={toggleModal}>
+                <button className="create-post-button" onClick={toggleModal}>
                     Create
                 </button>
             </div>
@@ -69,20 +77,7 @@ function Posts() {
                 ))}
             </div>
 
-            {isModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>Create New Post</h2>
-                        <textarea
-                            placeholder="Enter your post description..."
-                            className="modal-textarea"
-                        ></textarea>
-                        <button className="modal-close" onClick={toggleModal}>
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
+            <CreateModal isOpen={isModalOpen} toggleModal={toggleModal} />
         </div>
     );
 }

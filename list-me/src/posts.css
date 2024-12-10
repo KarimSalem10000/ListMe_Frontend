@@ -1,5 +1,6 @@
 .posts-container {
     padding: 20px;
+    padding-right: 30px;
     padding-bottom: 0px;
     background: #f9f9f9;
     width: 100%;
@@ -17,26 +18,16 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
-    width: 300px;
 }
 
-.create-button {
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.create-button:hover {
-    background-color: #005bb5;
-}
+.posts-title{
+font-size: 2em;
+font-weight: bold;
+margin-bottom: 5px;}
 
 .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -74,17 +65,35 @@
     border-radius: 5px;
 }
 
-.modal-close {
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    align-self: flex-end;
+@media (max-width: 450px) {
+    .search-bar{
+        width: 130px;
+    }
 }
 
-.modal-close:hover {
-    background-color: #005bb5;
+
+@media (min-width: 451px) and (max-width: 670px) {
+    .search-bar{
+        width: 200px;
+    }
+}
+
+/* Medium Screens: Icons with Text Underneath */
+@media (min-width: 671px) and (max-width: 1024px) {
+    .posts-container{
+        margin-left: 130px;
+    }
+    .search-bar{
+        width: 300px;
+    }
+}
+
+/* Large Screens: Permanent Sidebar */
+@media (min-width: 1025px) {
+    .posts-container{
+        margin-left: 240px;
+    }
+    .search-bar{
+        width: 300px;
+    }
 }

@@ -19,11 +19,18 @@
 
 .menu-icon {
     cursor: pointer;
+    padding: 3px;
+}
+
+.menu-icon:hover{
+    background-color: #f1f3f5;
+    border-radius: 20%;
 }
 
 .post-description {
     font-size: 14px;
     color: #333;
+    margin-top: 5px;
 }
 
 .post-image {
