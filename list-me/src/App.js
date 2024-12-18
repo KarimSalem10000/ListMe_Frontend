@@ -1,38 +1,43 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Header from "./header.js";
-import Sidebar from "./sidebar.js";
-import "./App.css";
-import Posts from "./posts.js";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./login/login.js";
+import Signup from "./login/signup.js";
+import Home from "./home.js";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+const clientId = "225548381873-1m5thnkbpmgpmv629jlshdg1lvtm4uj3.apps.googleusercontent.com";
 
 function App() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [message, setMessage] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
-
-  // Fetch data from the backend
   useEffect(() => {
-    axios
-      .get("/api") // Matches the backend route
-      .then((response) => setMessage(response.data.message))
-      .catch((error) => console.error("Error fetching data:", error));
+    // Check authentication status on app load
+    const authStatus = localStorage.getItem("isAuthenticated");
+    if (authStatus) {
+      setIsAuthenticated(true);
+    }
   }, []);
 
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true"); // Store in localStorage
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem("isAuthenticated"); // Remove from localStorage
+  };
+
   return (
-    <>
-      <Header toggleSidebar={toggleSidebar} />
-      <div className="app">
-        <Sidebar isOpen={isSidebarOpen} />
-        <div className="content">
-          <h1>Backend Connection Test</h1>
-          <p>{message || "Loading..."}</p>
-          <Posts />
-        </div>
-      </div>
-    </>
+    <GoogleOAuthProvider clientId={clientId}>
+      <Router>
+        <Routes>
+          <Route path="/" element={isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={<Signup onSignup={handleLogin} />} />
+        </Routes>
+      </Router>
+    </GoogleOAuthProvider>
   );
 }
 
