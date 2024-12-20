@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PostCard from './PostCard';
-import './posts.css';
+import './assets/css/posts.css';
 
 function Posts() {
     const [isModalOpen, setModalOpen] = useState(false);

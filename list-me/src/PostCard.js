@@ -1,5 +1,5 @@
 import React from 'react';
-import './PostCard.css';
+import './assets/css/PostCard.css';
 
 function PostCard({ title, description, image, hashtags }) {
     return (

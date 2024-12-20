@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./login/login.js";
-import Signup from "./login/signup.js";
-import Home from "./home.js";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
+import PostList from "./pages/PostList";
+import PostDetails from "./pages/PostDetails";
+import Analytics from "./pages/Analytics"; // Add Analytics if it's a new page
+import Settings from "./pages/Settings";   // Add Settings if it's a new page
 
-const clientId = "225548381873-1m5thnkbpmgpmv629jlshdg1lvtm4uj3.apps.googleusercontent.com";
-
-function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check authentication status on app load
-    const authStatus = localStorage.getItem("isAuthenticated");
-    if (authStatus) {
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-    localStorage.setItem("isAuthenticated", "true"); // Store in localStorage
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    localStorage.removeItem("isAuthenticated"); // Remove from localStorage
-  };
-
+const App = () => {
   return (
-    <GoogleOAuthProvider clientId={clientId}>
-      <Router>
-        <Routes>
-          <Route path="/" element={isAuthenticated ? <Home onLogout={handleLogout} /> : <Navigate to="/login" />} />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Signup onSignup={handleLogin} />} />
-        </Routes>
-      </Router>
-    </GoogleOAuthProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

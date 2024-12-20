@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "./header.js";
-import Sidebar from "./sidebar.js";
-import Posts from "./posts.js";
-import "./App.css";
+import Header from "../components/header.js";
+import Sidebar from "../components/sidebar.js";
+import Posts from "../posts.js";
+import "../assets/css/home.css";
 
 const Home = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);

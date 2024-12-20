@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import {jwtDecode} from "jwt-decode";
-
+import "../assets/css/signup.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
