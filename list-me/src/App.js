@@ -6,8 +6,10 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import PostList from "./pages/PostList";
 import PostDetails from "./pages/PostDetails";
-import Analytics from "./pages/Analytics"; // Add Analytics if it's a new page
-import Settings from "./pages/Settings";   // Add Settings if it's a new page
+import Analytics from "./pages/Analytics"; // Add Analytics 
+import Settings from "./pages/Settings";   // Add Settings 
+import Ai from "./pages/Ai";               // Add Ai
+
 
 const App = () => {
   return (
@@ -21,6 +23,7 @@ const App = () => {
         <Route path="/posts/:id" element={<PostDetails />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/ai" element={<Ai />} />
       </Routes>
     </Router>
   );
